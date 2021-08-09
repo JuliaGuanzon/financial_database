@@ -85,7 +85,7 @@ As we are using Mapbox API to aid in creating an interactive map, you will need 
 
 ## Usage and Examples
 
-To use the proptech application, the repository will need to be cloned from GitHub and into a local repository.
+To use the financial database, the repository will need to be cloned from GitHub and into a local repository.
 
 Enter into the dev environment by commanding: 
 
@@ -93,16 +93,16 @@ Enter into the dev environment by commanding:
  conda activate dev
 ```
 
-Please open the 'proptech_application' folder using Jupyter Notebook, and use the code:
+Please open the 'financial_database' folder using Jupyter Notebook, and use the code:
 
 ```
 jupyter notebook
 ```
 to access the information in the folder.
 
-![image](https://user-images.githubusercontent.com/84649228/127964512-e48b05c7-55bc-4377-ba7c-732093fe47f7.png)
 
-Open the 'san_francisco_housing.ipynb' file.
+
+Open the 'etf_analyzer.ipynb' file.
 
 When using the file, each line of code must be individually ran to capture the data. This ensures any data that needs to be pulled gets included in future calculations as we start to build out formulas for analysis. It is important that we do not miss a line of code.
 
@@ -110,9 +110,28 @@ To quickly execute the code, use the keyboard shortcut: Shift + Enter.
 
 The most important piece of code we need to run is the imports. Without these, information may not get pulled correctly.
 
+In order to start analyzing ETFs, we need to pull in the 'eft.db' as a temporary database using SQLite and creating an engine to interact with the database.
 
+```
+database_connection_string = 'sqlite:///etf.db'
+engine = sqlalchemy.create_engine(database_connection_string)
+```
 
+In this application, we sampled the PayPal (PYPL) data. We called the data using
+```
+query = """
+SELECT * FROM PYPL
+"""
 
+pypl_dataframe = pd.read_sql_query(query,con=engine)
+```
+and by putting it into a Pandas DataFrame, we are able to read the data.
+
+**Optimize Data Access**
+
+In this section, we test our access to the data and test two ways of pulling data we need using SQL.
+
+**Analyzing the ETF Porfolio
 
 
 ---
