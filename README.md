@@ -127,11 +127,38 @@ pypl_dataframe = pd.read_sql_query(query,con=engine)
 ```
 and by putting it into a Pandas DataFrame, we are able to read the data.
 
+To view the data, we create an interactive visualization showcasing the PYPL daily returns.
+
+Then, we create another visualization to show the cumulative returns for this asset.
+
 **Optimize Data Access**
 
 In this section, we test our access to the data and test two ways of pulling data we need using SQL.
 
-**Analyzing the ETF Porfolio
+First test is to access the closing prices for PYPL that are greater than 200.
+
+Second test is to find the top 10 daily returns for PYPL.
+
+
+**Analyzing the ETF Porfolio**
+
+In order to analyze the entire portfolio, we need to join each of the four assets in the ETF portfolio inot one DataFrame. To do this, we code the following to inner join the tables we connect all of them by the column 'time': 
+
+```
+query = """
+SELECT * FROM GDOT
+INNER JOIN GS ON GDOT.time = GS.time
+INNER JOIN PYPL ON GDOT.time = PYPL.time
+INNER JOIN SQ ON GDOT.time = SQ.time
+"""
+```
+Next, we analyze the annualized returns and used those returns to calculate the cumulative returns of the ETF portfolio. To showcase the data, we develop a hvPlot to visualized the cumulatiive return values of the ETF portfolio.
+
+
+**Deploying a Web Application**
+
+We use Voila to deploy the notebook as a web application. This can be done by doing the following:
+
 
 
 ---
