@@ -100,7 +100,7 @@ jupyter notebook
 ```
 to access the information in the folder.
 
-
+![open_repo](https://user-images.githubusercontent.com/84649228/128933869-f6c3af63-2c8e-4a91-812d-ef945949f927.png)
 
 Open the 'etf_analyzer.ipynb' file.
 
@@ -110,7 +110,9 @@ To quickly execute the code, use the keyboard shortcut: Shift + Enter.
 
 The most important piece of code we need to run is the imports. Without these, information may not get pulled correctly.
 
-In order to start analyzing ETFs, we need to pull in the 'eft.db' as a temporary database using SQLite and creating an engine to interact with the database.
+![imports](https://user-images.githubusercontent.com/84649228/128933908-df85026b-3d05-4083-9125-7deaad04c9eb.png)
+
+In order to start analyzing ETFs, we need to pull in the 'etf.db' as a temporary database using SQLite and creating an engine to interact with the database.
 
 ```
 database_connection_string = 'sqlite:///etf.db'
@@ -127,22 +129,30 @@ pypl_dataframe = pd.read_sql_query(query,con=engine)
 ```
 and by putting it into a Pandas DataFrame, we are able to read the data.
 
+![reading the data](https://user-images.githubusercontent.com/84649228/128934011-5464b18f-f31c-421e-8304-2997c9ed6fc1.png)
+
 To view the data, we create an interactive visualization showcasing the PYPL daily returns.
+![PYPL Daily Returns](https://user-images.githubusercontent.com/84649228/128934038-fc6e6e25-9a1d-4dcd-a61d-2cdf72423a2e.png)
+
 
 Then, we create another visualization to show the cumulative returns for this asset.
+![PYPL Cumulative Returns](https://user-images.githubusercontent.com/84649228/128934051-8051deaa-f3df-4a81-ab7b-eb45cab4dd6e.png)
+
 
 **Optimize Data Access**
 
 In this section, we test our access to the data and test two ways of pulling data we need using SQL.
 
-First test is to access the closing prices for PYPL that are greater than 200.
+The first test is to access the closing prices for PYPL that are greater than 200.
+![image](https://user-images.githubusercontent.com/84649228/128934402-18532bf1-b348-4a4b-b67f-e5de4d542503.png)
 
-Second test is to find the top 10 daily returns for PYPL.
+The second test is to find the top 10 daily returns for PYPL.
+![image](https://user-images.githubusercontent.com/84649228/128934440-614e6c2d-8acd-4e96-99f3-c1fb53c2d847.png)
 
 
 **Analyzing the ETF Porfolio**
 
-In order to analyze the entire portfolio, we need to join each of the four assets in the ETF portfolio inot one DataFrame. To do this, we code the following to inner join the tables we connect all of them by the column 'time': 
+In order to analyze the entire portfolio, we need to join each of the four assets in the ETF portfolio into one DataFrame. To do this, we code the following to inner join the tables by the column 'time': 
 
 ```
 query = """
@@ -152,13 +162,17 @@ INNER JOIN PYPL ON GDOT.time = PYPL.time
 INNER JOIN SQ ON GDOT.time = SQ.time
 """
 ```
-Next, we analyze the annualized returns and used those returns to calculate the cumulative returns of the ETF portfolio. To showcase the data, we develop a hvPlot to visualized the cumulatiive return values of the ETF portfolio.
+Next, we analyze the annualized returns and used those returns to calculate the cumulative returns of the ETF portfolio. To showcase the data, we develop a hvPlot to visualized the cumulative return values of the ETF portfolio.
+![ETF Portfolio cumulative return](https://user-images.githubusercontent.com/84649228/128933839-dc8809f9-2f11-4964-b0f1-70418c26aaf3.png)
 
 
 **Deploying a Web Application**
 
 We use Voila to deploy the notebook as a web application. This can be done by doing the following:
+![terminal_voila_executed](https://user-images.githubusercontent.com/84649228/128933705-211dc431-42a8-4513-8a04-88cf664cbb62.png)
 
+When the code runs, it will open the notebook as a web application as seen below:
+![screenshot_of_voila](https://user-images.githubusercontent.com/84649228/128933795-3b7192f4-ba91-4248-9868-2cb0173ac8ea.png)
 
 
 ---
