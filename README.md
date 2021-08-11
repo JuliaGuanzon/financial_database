@@ -1,6 +1,6 @@
 # Financial Database
 
-Researching individual stocks takes time and a great amount of financial knowledge to be confident in making the right investment. For this reason, exchange-traded fund portfolios are great investments. With an ETF, you invest your money in a diverse portfolio, which means less risk than just investing in individual stocks. It can also bring security to an investor, as this group of stocks have been grouped together for their quality of returns. This financial database application will assist in analyzing an EFT and its cumulative returns. The user will be able to extract data for one individual stock in the ETF to gain an understanding of how that stock contributes to that porfolio. 
+Researching individual stocks takes time and a great amount of financial knowledge to be confident in making the right investment. For this reason, exchange-traded fund portfolios are great investments. With an ETF, you invest your money in a diverse portfolio, which means less risk than just investing in individual stocks. It can also bring security to an investor, as this group of stocks have been grouped together for their quality of returns. This financial database application will assist in analyzing an EFT and its cumulative returns. The user will be able to extract data for one individual stock in the ETF to gain an understanding of how that stock performs. 
 
 ---
 
