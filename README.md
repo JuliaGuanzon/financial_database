@@ -1,5 +1,7 @@
 # Financial Database
 
+Researching individual stocks takes time and a great amount of financial knowledge to be confident in making the right investment. For this reason, exchange-traded fund portfolios are great investments. With an ETF, you invest your money in a diverse portfolio, which means less risk than just investing in individual stocks. It can also bring security to an investor, as this group of stocks have been grouped together for their quality of returns. This financial database application will assist in analyzing an EFT and its cumulative returns. The user will be able to extract data for one individual stock in the ETF to gain an understanding of how that stock contributes to that porfolio. 
+
 ---
 
 ## Technologies
@@ -58,6 +60,10 @@ It is important to also install Pandas as the majority of code used is using lan
 conda activate dev
 conda install pandas -y
 conda deactive
+```
+Numpy:
+```
+pip install numpy
 ```
 
 PyViz will help build interactive visual modules that will showcase our data.
@@ -144,7 +150,7 @@ Then, we create another visualization to show the cumulative returns for this as
 
 **Optimize Data Access**
 
-In this section, we test our access to the data and test two ways of pulling data we need using SQL.
+In this section, we test how we can access the data and test two ways of pulling data we need using SQL.
 
 The first test is to access the closing prices for PYPL that are greater than 200.
 ![image](https://user-images.githubusercontent.com/84649228/128934402-18532bf1-b348-4a4b-b67f-e5de4d542503.png)
