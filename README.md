@@ -20,8 +20,13 @@ Pandas - included in Python
 
 **Other Installations**
 
-[PyViz](https://pyviz.org/) - Tools for data visualizations
+[Numpy](https://numpy.org/doc/stable/) - included in Python
 
+[PyViz](https://pyviz.org/) - tools for data visualizations
+
+[SQLAlchemy](https://docs.sqlalchemy.org/en/14/core/engines.html) - helps communicate with and create databases
+
+[Voila](https://github.com/voila-dashboards/voila)-turns Jupyter Notebook into a web application
 
 ---
 
@@ -62,7 +67,6 @@ conda install -c plotly plotly=4.13.
 conda install -c pyviz hvplot
 conda install -c conda-forge nodejs=12
 ```
-
 The code below will install Jupyterlab dependencies.
 
 ```
@@ -72,15 +76,14 @@ jupyter labextension install @jupyter-widgets/jupyterlab-manager plotlywidget@4.
 jupyter labextension install @pyviz/jupyterlab_pyviz --no-build
 jupyter lab build
 ```
-
-As we are using Mapbox API to aid in creating an interactive map, you will need to use your MapBox API key to pull in map details. Be sure to have your *.env* file around to use this application.
-
+SQLAlchemy will assist in building SQL databases that will host the data that's needed.
 ```
-!pip install python-dotenv
+pip install sqlalchemy
 ```
-
-
-
+This last install will help create a web application from the Jupyter Notebook.
+```
+conda install -c conda-forge voila -y
+```
 ---
 
 ## Usage and Examples
